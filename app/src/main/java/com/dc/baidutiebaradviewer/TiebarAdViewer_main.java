@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -39,8 +38,7 @@ import java.util.Map;
 public class TiebarAdViewer_main extends Activity {
 
     private List<Map<String,String>> Maplist = new ArrayList<>();
-    private List<String> adtextarray = new ArrayList<>();
-    private List<String> adpicarray = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle SavedInstanceState)
     {
@@ -89,8 +87,6 @@ public class TiebarAdViewer_main extends Activity {
     private void show() {
 
         ListView listview = (ListView) findViewById(R.id.List_view1);
-        int i=adtextarray.size();
-        String[] ShowStringArray=new String[i];
 
         //Log.i("adcount",""+i);
         Log.i("adcount",""+Maplist.size());
@@ -163,9 +159,6 @@ public class TiebarAdViewer_main extends Activity {
                     adpic = elements.attr("src");//选出图片连接
                 if (!adtext.equals("")&&!adpic.equals("")) {
                     Map<String, String> map = new HashMap<>();
-                    adtextarray.add(adtext);
-                    adpicarray.add(adpic);
-
                     map.put("adtext", adtext);
                     map.put("adpic", adpic);
                     Maplist.add(map);
